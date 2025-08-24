@@ -28,13 +28,13 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
   }, [handle]);
 
   const handleLoginClick = () => {
-    toast.info("Login functionality would be implemented here");
+    toast.info("Chức năng đăng nhập sẽ được triển khai tại đây");
   };
 
   if (!product) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <p className="text-gray-500">Loading...</p>
+        <p className="text-gray-500">Đang tải...</p>
       </div>
     );
   }

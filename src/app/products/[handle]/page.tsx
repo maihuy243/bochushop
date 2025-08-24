@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getProduct, getCollection, generateProductMetadata } from "@/lib/data";
+import { generateProductMetadata } from "@/lib/data";
 import { ProductPageComponent } from "@/components/pages/ProductPage";
+import { getProductByHandle } from "@/data/seed";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
@@ -11,15 +11,15 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { handle } = await params;
-  const product = await getProduct(handle);
-
-  if (!product) {
+  const foundProduct = getProductByHandle(handle);
+  
+  if (!foundProduct) {
     return {
-      title: "Product Not Found",
+      title: "foundProduct Not Found",
     };
   }
 
-  return generateProductMetadata(product);
+  return generateProductMetadata(foundProduct);
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

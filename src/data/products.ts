@@ -5,18 +5,8 @@ import { accessoryProducts } from "./products/acessory";
 import { lensProducts } from "./products/lens";
 import { nozzlesProducts } from "./products/nozzles";
 
-export interface Variant {
-  id: string;
-  size: string; // e.g., S / M / L or 10mm / 12mm / 14mm
-  price: number;
-  currency: "USD" | "VND";
-  sku: string;
-  stock: number; // 0 => out of stock
-  compareAtPrice?: number; // optional strike-through
-}
-
 export interface ProductSize {
-  label: string; // e.g., "S", "M", "L" or "20mm", "30mm"
+  label: string;
   price: number;
   sku: string;
   stock: number;
