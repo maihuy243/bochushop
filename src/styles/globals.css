@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -10,8 +8,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #1e40af;
-  --primary-foreground: #ffffff;
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #030213;
   --muted: #ececf0;
@@ -32,7 +30,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
+  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #030213;
@@ -50,8 +48,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -129,15 +127,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Smooth focus transitions */
-  *:focus-visible {
-    transition: outline-offset 0.2s ease;
-  }
 }
 
 /**
@@ -146,51 +135,49 @@
 @layer base {
   :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
-      font-size: 2.25rem;
+      font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.2;
-      letter-spacing: -0.025em;
+      line-height: 1.5;
     }
 
     h2 {
-      font-size: 1.875rem;
+      font-size: var(--text-xl);
       font-weight: var(--font-weight-medium);
-      line-height: 1.3;
-      letter-spacing: -0.025em;
+      line-height: 1.5;
     }
 
     h3 {
-      font-size: 1.5rem;
+      font-size: var(--text-lg);
       font-weight: var(--font-weight-medium);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     h4 {
-      font-size: 1.25rem;
+      font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
     }
 
     p {
-      font-size: 1rem;
+      font-size: var(--text-base);
       font-weight: var(--font-weight-normal);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     label {
-      font-size: 0.875rem;
+      font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
     }
 
     button {
-      font-size: 0.875rem;
+      font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
     }
 
     input {
-      font-size: 0.875rem;
+      font-size: var(--text-base);
       font-weight: var(--font-weight-normal);
       line-height: 1.5;
     }
@@ -199,82 +186,4 @@
 
 html {
   font-size: var(--font-size);
-}
-
-/* Animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-up {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-from-right {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.4s ease-out;
-}
-
-.animate-slide-in-from-right {
-  animation: slide-in-from-right 0.3s ease-out;
-}
-
-.animate-bounce-in {
-  animation: bounce-in 0.5s ease-out;
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
