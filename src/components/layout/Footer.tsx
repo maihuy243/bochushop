@@ -1,26 +1,27 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { Mail, MapPin, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
+import { motion } from "motion/react";
+import Link from "next/link";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
+import { ZALO_LINK } from "../product/ProductDetailWithVariants";
 
- function Footer() {
+function Footer() {
   const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    
+    const email = formData.get("email") as string;
+
     if (email) {
-      toast.success('Cảm ơn bạn đã đăng ký nhận bản tin!');
+      toast.success("Cảm ơn bạn đã đăng ký nhận bản tin!");
       (e.target as HTMLFormElement).reset();
     }
   };
 
   return (
-    <footer className="bg-gray-900 text-white" id='contact'>
+    <footer className="bg-gray-900 text-white" id="contact">
       <div className="container mx-auto max-w-7xl px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Info Column */}
@@ -35,23 +36,29 @@ import { toast } from 'sonner';
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 text-blue-400 flex-shrink-0" />
                 <div>
-                  <p>123 Industrial Avenue</p>
-                  <p>Manufacturing District</p>
-                  <p>Tech City, TC 12345</p>
+                  <p>Địa chỉ: Trung tâm thương mại Tô Châu, quận Wuzhong</p>
+                  <p>thành phố Tô Châu</p>
+                  <p>tỉnh Giang Tô, Trung Quốc</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="mailto:contact@BoChuStore.com" className="hover:text-blue-400 transition-colors">
-                  contact@BoChuStore.com
+                <a
+                  href="mailto:info@bochu.shop"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  E-mail: info@bochu.shop
                 </a>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="https://wa.me/15551234567" className="hover:text-blue-400 transition-colors">
-                  WhatsApp: +1 (555) 123-4567
+                <a
+                  href={ZALO_LINK}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Zalo: 0929687997
                 </a>
               </div>
             </div>
@@ -66,9 +73,30 @@ import { toast } from 'sonner';
           >
             <h3 className="text-xl mb-6">Chính sách</h3>
             <ul className="space-y-3">
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Liên hệ với chúng tôi</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Chính sách bảo mật</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Điều khoản dịch vụ</Link></li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Liên hệ với chúng tôi
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Chính sách bảo mật
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Điều khoản dịch vụ
+                </Link>
+              </li>
             </ul>
           </motion.div>
 
@@ -81,11 +109,46 @@ import { toast } from 'sonner';
           >
             <h3 className="text-xl mb-6">Danh mục</h3>
             <ul className="space-y-3">
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Trang chủ</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Bộ sưu tập Lens</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Bộ sưu tập Nozzle</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Bộ sưu tập Phụ tùng</Link></li>
-              <li><Link href="/" className="hover:text-blue-400 transition-colors">Dịch vụ Hỗ trợ</Link></li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Trang chủ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Bộ sưu tập Lens
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Bộ sưu tập Nozzle
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Bộ sưu tập Phụ tùng
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Dịch vụ Hỗ trợ
+                </Link>
+              </li>
             </ul>
           </motion.div>
 
@@ -98,9 +161,10 @@ import { toast } from 'sonner';
           >
             <h3 className="text-xl mb-6">Bản tin</h3>
             <p className="text-gray-300 mb-4">
-              Theo dõi để nhận thông tin về các sản phẩm mới nhất và ưu đãi đặc biệt!
+              Theo dõi để nhận thông tin về các sản phẩm mới nhất và ưu đãi đặc
+              biệt!
             </p>
-            
+
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <Input
                 type="email"
@@ -109,8 +173,8 @@ import { toast } from 'sonner';
                 className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
                 required
               />
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-primary hover:bg-primary/90"
               >
                 Đăng ký
