@@ -12,6 +12,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface HeaderProps {
   cartItemCount: number;
@@ -25,6 +27,7 @@ export function Header({
   onLoginClick,
 }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const navItems = [
     { name: "Trang Chủ", href: "#top", path: "/" },
@@ -42,9 +45,11 @@ export function Header({
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-2xl text-blue-600 mr-8" >BoChuStore</h1>
-          </div>
+          <Link href={"/"}>
+            <div className="flex items-center">
+              <h1 className="text-2xl text-blue-600 mr-8">BoChuStore</h1>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -52,8 +57,8 @@ export function Header({
               <button
                 key={item.name}
                 onClick={() => {
-                  if(item.path){
-                    window.location.href = item.path;
+                  if (item.path) {
+                    router.push(item.path);
                     return;
                   }
                   const el = document.querySelector(item.href);

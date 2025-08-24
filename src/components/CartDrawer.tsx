@@ -2,31 +2,39 @@ import { X, Minus, Plus, ShoppingBag } from "lucide-react";
 import { Button } from "./ui/button";
 import { CartItem } from "../lib/cart";
 import { motion, AnimatePresence } from "motion/react";
+import { ZALO_LINK } from "./product/ProductDetailWithVariants";
 
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   items: CartItem[];
-  onUpdateQuantity: (productId: string, sizeLabel: string, quantity: number) => void;
+  onUpdateQuantity: (
+    productId: string,
+    sizeLabel: string,
+    quantity: number
+  ) => void;
   onRemoveItem: (productId: string, sizeLabel: string) => void;
 }
 
-export function CartDrawer({ 
-  isOpen, 
-  onClose, 
-  items, 
-  onUpdateQuantity, 
-  onRemoveItem 
+export function CartDrawer({
+  isOpen,
+  onClose,
+  items,
+  onUpdateQuantity,
+  onRemoveItem,
 }: CartDrawerProps) {
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
     }).format(price);
   };
 
   const getTotalPrice = () => {
-    return items.reduce((total, item) => total + (item.size.price * item.quantity), 0);
+    return items.reduce(
+      (total, item) => total + item.size.price * item.quantity,
+      0
+    );
   };
 
   const getTotalItems = () => {
@@ -73,7 +81,10 @@ export function CartDrawer({
             <div className="flex-1 overflow-y-auto p-4">
               {items.length === 0 ? (
                 <div className="text-center py-8">
-                  <ShoppingBag size={48} className="mx-auto text-gray-300 mb-4" />
+                  <ShoppingBag
+                    size={48}
+                    className="mx-auto text-gray-300 mb-4"
+                  />
                   <p className="text-gray-500">Your cart is empty</p>
                 </div>
               ) : (
@@ -89,7 +100,7 @@ export function CartDrawer({
                         alt={item.product.title}
                         className="w-16 h-16 object-cover rounded"
                       />
-                      
+
                       <div className="flex-1 min-w-0">
                         <h3 className="font-medium line-clamp-2 mb-1">
                           {item.product.title}
@@ -106,26 +117,42 @@ export function CartDrawer({
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => onRemoveItem(item.product.id, item.size.label)}
+                          onClick={() =>
+                            onRemoveItem(item.product.id, item.size.label)
+                          }
                           className="text-red-500 hover:text-red-700 p-1"
                         >
                           <X size={16} />
                         </Button>
-                        
+
                         <div className="flex items-center gap-1">
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => onUpdateQuantity(item.product.id, item.size.label, item.quantity - 1)}
+                            onClick={() =>
+                              onUpdateQuantity(
+                                item.product.id,
+                                item.size.label,
+                                item.quantity - 1
+                              )
+                            }
                             className="w-8 h-8 p-0"
                           >
                             <Minus size={12} />
                           </Button>
-                          <span className="w-8 text-center text-sm">{item.quantity}</span>
+                          <span className="w-8 text-center text-sm">
+                            {item.quantity}
+                          </span>
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => onUpdateQuantity(item.product.id, item.size.label, item.quantity + 1)}
+                            onClick={() =>
+                              onUpdateQuantity(
+                                item.product.id,
+                                item.size.label,
+                                item.quantity + 1
+                              )
+                            }
                             className="w-8 h-8 p-0"
                           >
                             <Plus size={12} />
@@ -147,8 +174,14 @@ export function CartDrawer({
                     {formatPrice(getTotalPrice())}
                   </span>
                 </div>
-                
-                <Button className="w-full" size="lg">
+
+                <Button
+                  className="w-full"
+                  size="lg"
+                  onClick={() => {
+                    window.open(ZALO_LINK,'_blank');
+                  }}
+                >
                   Checkout
                 </Button>
               </div>

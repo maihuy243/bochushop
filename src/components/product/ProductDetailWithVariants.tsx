@@ -2,7 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, ShoppingCart, Heart, Share2, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  ShoppingCart,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Breadcrumbs } from "../ui/Breadcrumbs";
@@ -10,9 +14,13 @@ import {
   Product,
   ProductSize,
   parentCategories,
-  getCollectionByHandle,
 } from "../../data/products";
 import { useRouter } from "next/navigation";
+
+// cấu hình link tài khoản của bạn
+export const ZALO_LINK = "https://zalo.me/0929687997"; // số VN ở dạng +84 / 84
+export const WHATSAPP_LINK = "https://wa.me/84901234567"; // E.164, không có dấu +
+export const TELEGRAM_LINK = "https://t.me/your_username"; // username Telegram
 
 interface ProductDetailWithVariantsProps {
   product: Product;
@@ -259,13 +267,35 @@ export function ProductDetailWithVariants({
                 Thêm vào giỏ hàng
               </Button>
 
-              <Button variant="outline" size="lg">
-                <Heart size={20} />
+              {/* Zalo */}
+              <Button variant="secondary" className="bg-blue-400 text-white hover:text-black hover:bg-blue-500" size="lg" asChild>
+                <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle size={20} className="mr-2" />
+                  Zalo
+                </a>
+              </Button>
+{/* 
+              <Button variant="outline" size="lg" asChild disabled={true}>
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Phone size={20} className="mr-2" />
+                  WhatsApp
+                </a>
               </Button>
 
-              <Button variant="outline" size="lg">
-                <Share2 size={20} />
-              </Button>
+              <Button variant="outline" size="lg" asChild disabled={true}>
+                <a
+                  href={TELEGRAM_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Send size={20} className="mr-2" />
+                  Telegram
+                </a>
+              </Button> */}
             </div>
           </motion.div>
         </div>

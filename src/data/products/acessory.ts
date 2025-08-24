@@ -617,7 +617,7 @@ export const accessoryProducts: Product[] = [
         value: "Các phiên bản V6H tương thích với HypCut",
       },
     ],
-    badges: ["Giảm giá", "Đã bán hết"],
+    badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "",
     stock: 613,
     collectionId: "bochu-boci-wkb-remote-control",
