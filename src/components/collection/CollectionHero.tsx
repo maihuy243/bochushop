@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowLeft, Filter, Grid3x3, List } from "lucide-react";
-import { Collection, parentCategories } from "../../data/products";
+import { ArrowLeft} from "lucide-react";
+import { Collection } from "../../data/products";
 import { Breadcrumbs } from "../ui/Breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";

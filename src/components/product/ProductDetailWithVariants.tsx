@@ -13,9 +13,9 @@ import { Breadcrumbs } from "../ui/Breadcrumbs";
 import {
   Product,
   ProductSize,
-  parentCategories,
 } from "../../data/products";
 import { useRouter } from "next/navigation";
+import { useCategories } from "@/hooks/useCategories";
 
 // cấu hình link tài khoản của bạn
 export const ZALO_LINK = "https://zalo.me/0929687997"; // số VN ở dạng +84 / 84
@@ -34,6 +34,7 @@ export function ProductDetailWithVariants({
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const router = useRouter();
+  const { data = [] } = useCategories()
 
   const formatPrice = (price: number, currency: string) => {
     return new Intl.NumberFormat("vi-VN", {
@@ -56,7 +57,7 @@ export function ProductDetailWithVariants({
 
   // Find collection and parent category for breadcrumbs
   const collection = useMemo(() => {
-    const foundCollection = parentCategories
+    const foundCollection = data
       .flatMap((cat) => cat.collections)
       .find((col) => col.handle === product.collection_id);
     return foundCollection;

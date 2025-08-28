@@ -18,40 +18,41 @@ export default function App() {
   const handleLoginClick = () => {
     toast.info("Tính năng đăng nhập sẽ được triển khai tại đây");
   };
+
+
   // Home page
   return (
     <div className="min-h-screen bg-white">
       <Toaster position="top-right" />
-      <Header 
+      <Header
         cartItemCount={getTotalItems()}
         onCartClick={toggleCart}
         onLoginClick={handleLoginClick}
       />
-      
+
       <main>
         <Hero />
-        
         <div id="categories">
           {categories.map((category, index) => (
-            <CategoryGrid 
-              key={category.id} 
-              category={category} 
-              index={index} 
+            <CategoryGrid
+              key={category.id}
+              category={category}
+              index={index}
             />
           ))}
         </div>
       </main>
-      
+
       <FooterRoot />
-      
+
       <CartDrawer
         isOpen={isOpen}
         onClose={() => useCartStore.setState({ isOpen: false })}
         items={items}
-        onUpdateQuantity={(productId: string, sizeLabel: string, quantity: number) => 
+        onUpdateQuantity={(productId: string, sizeLabel: string, quantity: number) =>
           updateQuantity(productId, sizeLabel, quantity)
         }
-        onRemoveItem={(productId: string, sizeLabel: string) => 
+        onRemoveItem={(productId: string, sizeLabel: string) =>
           removeItem(productId, sizeLabel)
         }
       />

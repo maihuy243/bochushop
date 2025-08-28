@@ -1,7 +1,5 @@
 import {
   getCollectionByHandle,
-  parentCategories,
-  ParentCategory,
   Product,
   products,
 } from "@/data/products";
@@ -15,11 +13,6 @@ import {
 
 // Simulate API delays for realistic loading states
 const SIMULATE_DELAY = 100;
-
-export async function getAllCollections(): Promise<ParentCategory[]> {
-  await new Promise((resolve) => setTimeout(resolve, SIMULATE_DELAY));
-  return parentCategories;
-}
 
 export async function getCollection(
   handle: string
@@ -92,7 +85,7 @@ export async function getRelatedProducts(
 
   const collectionProducts = getProductsByCollection(collection_id);
   const filteredProducts = collectionProducts.filter(
-    (product) => product.id !== productId
+    (product) => product.product_id !== productId
   );
 
   // Shuffle and return limited results

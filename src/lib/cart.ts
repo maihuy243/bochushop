@@ -28,13 +28,13 @@ export const useCartStore = create<CartState>()(
       addItem: (product: Product, size: ProductSize) => {
         set((state) => {
           const existingItem = state.items.find(
-            (item) => item.product.id === product.id && item.size.label === size.label
+            (item) => item.product.product_id === product.product_id && item.size.label === size.label
           );
           
           if (existingItem) {
             return {
               items: state.items.map((item) =>
-                item.product.id === product.id && item.size.label === size.label
+                item.product.product_id === product.product_id && item.size.label === size.label
                   ? { ...item, quantity: item.quantity + 1 }
                   : item
               ),
@@ -49,9 +49,9 @@ export const useCartStore = create<CartState>()(
       updateQuantity: (productId: string, sizeLabel: string, quantity: number) => {
         set((state) => ({
           items: quantity <= 0 
-            ? state.items.filter(item => !(item.product.id === productId && item.size.label === sizeLabel))
+            ? state.items.filter(item => !(item.product.product_id === productId && item.size.label === sizeLabel))
             : state.items.map((item) =>
-                item.product.id === productId && item.size.label === sizeLabel
+                item.product.product_id === productId && item.size.label === sizeLabel
                   ? { ...item, quantity }
                   : item
               ),
@@ -59,7 +59,7 @@ export const useCartStore = create<CartState>()(
       },
       removeItem: (productId: string, sizeLabel: string) => {
         set((state) => ({
-          items: state.items.filter(item => !(item.product.id === productId && item.size.label === sizeLabel)),
+          items: state.items.filter(item => !(item.product.product_id === productId && item.size.label === sizeLabel)),
         }));
       },
       getTotalItems: () => {

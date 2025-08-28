@@ -91,7 +91,7 @@ export function CartDrawer({
                 <div className="space-y-4">
                   {items.map((item) => (
                     <motion.div
-                      key={`${item.product.id}-${item.size.label}`}
+                      key={`${item.product.product_id}-${item.size.label}`}
                       layout
                       className="flex gap-3 p-3 bg-gray-50 rounded-lg"
                     >
@@ -118,7 +118,7 @@ export function CartDrawer({
                           variant="ghost"
                           size="sm"
                           onClick={() =>
-                            onRemoveItem(item.product.id, item.size.label)
+                            onRemoveItem(item.product.product_id, item.size.label)
                           }
                           className="text-red-500 hover:text-red-700 p-1"
                         >
@@ -131,7 +131,7 @@ export function CartDrawer({
                             size="sm"
                             onClick={() =>
                               onUpdateQuantity(
-                                item.product.id,
+                                item.product.product_id,
                                 item.size.label,
                                 item.quantity - 1
                               )
@@ -148,7 +148,7 @@ export function CartDrawer({
                             size="sm"
                             onClick={() =>
                               onUpdateQuantity(
-                                item.product.id,
+                                item.product.product_id,
                                 item.size.label,
                                 item.quantity + 1
                               )

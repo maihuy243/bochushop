@@ -1,10 +1,3 @@
-import { accessoryCategories } from "./collection-acessory";
-import { lensCategory } from "./collection-lens";
-import { nozzlesCategories } from "./collection-nozzles";
-import { accessoryProducts } from "./products/acessory";
-import { lensProducts } from "./products/lens";
-import { nozzlesProducts } from "./products/nozzles";
-
 export interface Variant {
   id: string;
   size: string; // e.g., S / M / L or 10mm / 12mm / 14mm
@@ -52,15 +45,7 @@ export interface ParentCategory {
   collections: Collection[];
 }
 
-
-
-export const parentCategories: ParentCategory[] = [
-  lensCategory,
-  nozzlesCategories,
-  accessoryCategories,
-];
-
-export const products: Product[] = [...lensProducts, ...nozzlesProducts, ...accessoryProducts];
+export const products: Product[] = [];
 
 export const getProductsByCollection = (collection_id: string, products: Product[]): Product[] => {
   return products.filter((product) => product.collection_id === collection_id);
