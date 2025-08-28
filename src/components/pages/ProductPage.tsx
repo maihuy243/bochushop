@@ -2,14 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { TopBar } from "../TopBar";
 import { Header } from "../Header";
 import { ProductDetailWithVariants } from "../product/ProductDetailWithVariants";
 import { FooterRoot } from "../Footer";
 import { CartDrawer } from "../CartDrawer";
-import { getProductByHandle, Product, products } from "../../data/products";
+import { getProductByHandle, Product } from "../../data/products";
 import { useCartStore } from "../../lib/cart";
 import { CollectionProducts } from "../collection/CollectionProducts";
+import { useFlatProducts } from "@/hooks/useAllProduct";
 
 interface ProductPageProps {
   handle: string;
@@ -26,15 +26,16 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
     toggleCart,
     isOpen,
   } = useCartStore();
+  const { data: products } = useFlatProducts()
 
   useEffect(() => {
-    const foundProduct = getProductByHandle(handle);
+    const foundProduct = getProductByHandle(handle, products || []);
     if (foundProduct) {
       setProduct(foundProduct);
     } else {
       toast.error("Product not found");
     }
-  }, [handle]);
+  }, [handle, products?.length]);
 
   function pickRandom<T>(items: T[], n = 4): T[] {
     if (n >= items.length) return [...items];
@@ -48,8 +49,8 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
 
   const productSuggest = useMemo<Product[]>(() => {
     if (!products?.length) return [];
-    const pool = product?.id
-      ? products.filter((p) => p.id !== product.id) // bỏ sản phẩm đang xem (nếu có)
+    const pool = product?.product_id
+      ? products.filter((p) => p?.product_id !== product?.product_id) // bỏ sản phẩm đang xem (nếu có)
       : products;
 
     const take = Math.min(4, pool.length);

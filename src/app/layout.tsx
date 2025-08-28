@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { Toaster } from 'sonner';
 import './globals.css';
+import { ReactQueryProvider } from '@/lib/tanstack-query';
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -73,7 +74,9 @@ export default function RootLayout({
   return (
     <html lang="vi" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        {children}
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
         <Toaster position="top-right" expand={false} richColors closeButton />
       </body>
     </html>

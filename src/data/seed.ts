@@ -4,22 +4,22 @@ export interface Collection {
   id: string;
   handle: string;
   title: string;
-  heroImage: string;
+  hero_image: string;
   description: string;
 }
 
 
-export function getProductByHandle(handle: string): Product | undefined {
+export function getProductByHandle(handle: string, products: Product[] = []): Product | undefined {
   return products.find(product => product.handle === handle);
 }
 
-export function getProductsByCollection(collectionId: string): Product[] {
-  return products.filter(product => product.collectionId === collectionId);
+export function getProductsByCollection(collection_id: string): Product[] {
+  return products.filter(product => product.collection_id === collection_id);
 }
 
-export function searchProducts(query: string, collectionId?: string): Product[] {
-  const searchIn = collectionId 
-    ? getProductsByCollection(collectionId)
+export function searchProducts(query: string, collection_id?: string): Product[] {
+  const searchIn = collection_id 
+    ? getProductsByCollection(collection_id)
     : products;
     
   if (!query.trim()) return searchIn;

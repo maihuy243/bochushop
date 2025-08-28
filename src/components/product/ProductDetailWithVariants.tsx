@@ -58,7 +58,7 @@ export function ProductDetailWithVariants({
   const collection = useMemo(() => {
     const foundCollection = parentCategories
       .flatMap((cat) => cat.collections)
-      .find((col) => col.handle === product.collectionId);
+      .find((col) => col.handle === product.collection_id);
     return foundCollection;
   }, [product]);
 
@@ -69,7 +69,7 @@ export function ProductDetailWithVariants({
     },
     {
       label: collection?.title || "Bộ sưu tập",
-      onClick: () => router.push(`/collections/${product.collectionId}`),
+      onClick: () => router.push(`/collections/${product.collection_id}`),
     },
     {
       label: product.title,
@@ -205,11 +205,11 @@ export function ProductDetailWithVariants({
             </div>
 
             {/* Kích cỡ (Size Selection) */}
-            {product.sizes && product.sizes.length > 0 && (
+            {product.size && product.size.length > 0 && (
               <div className="space-y-3">
                 <label className="block font-medium">Kích cỡ</label>
                 <div className="grid grid-cols-3 gap-2">
-                  {product.sizes.map((size) => (
+                  {product.size.map((size) => (
                     <motion.button
                       key={size.label}
                       whileHover={{ scale: 1.02 }}

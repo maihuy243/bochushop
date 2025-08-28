@@ -45,7 +45,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "D34.0T5 (various)",
     stock: 1974,
-    collectionId: "bochu-boci-lower-protective-lens",
+    collection_id: "bochu-boci-lower-protective-lens",
     description:
       "Ống kính bảo vệ dưới BOCHU áp dụng công nghệ phủ sáng tạo, sử dụng kim loại hafni làm vật liệu. Bằng cách sử dụng công nghệ phủ nhiều lớp để phân phối đều trường điện, chúng có thể tránh hiệu quả nồng độ trường điện cao, do đó tăng đáng kể ngưỡng hư hỏng của tia laser và đảm bảo tối đa hóa hiệu suất năng lượng của tia laser.",
     sizes: [
@@ -105,7 +105,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "DP.V.POO23AA",
     stock: 1823,
-    collectionId: "bochu-boci-lower-protective-lens",
+    collection_id: "bochu-boci-lower-protective-lens",
     description:
       "Ống kính Laser BOCHU (BCOI) 25.4*4-2 (3kW), mã số DP.V.POO23AA, tương thích BLT310, BLT310T.",
     sizes: [
@@ -135,7 +135,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "D37.0T7 (variants)",
     stock: 1032,
-    collectionId: "bochu-boci-lower-protective-lens",
+    collection_id: "bochu-boci-lower-protective-lens",
     description:
       "BOCHU (BOCI) Black King Kong D34.0T5 Ống kính bảo vệ phía dưới",
     sizes: [
@@ -180,7 +180,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "D36.0T5 (variants)",
     stock: 352,
-    collectionId: "bochu-boci-upper-protective-lens",
+    collection_id: "bochu-boci-upper-protective-lens",
     description:
       "Ống kính bảo vệ đầu cắt BOCHU BOCI BLT D36.0*5, nhiều biến thể công suất từ 60kW đến 120kW, tương thích các model BLT series.",
     sizes: [
@@ -236,7 +236,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "D21.5T2 (variants)",
     stock: 287,
-    collectionId: "bochu-boci-upper-protective-lens",
+    collection_id: "bochu-boci-upper-protective-lens",
     description:
       "Ống kính bảo vệ đầu cắt BOCHU (BOCI) D21.5×2, nhiều biến thể cho dải công suất 15–40 kW, tương thích nhiều model BLT.",
     sizes: [
@@ -304,7 +304,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "D25.4T4 (variants)",
     stock: 412,
-    collectionId: "bochu-boci-upper-protective-lens",
+    collection_id: "bochu-boci-upper-protective-lens",
     description:
       "Ống kính bảo vệ trên laser BOCHU (BOCI) D25.4×4, hiệu suất quang học cao, phù hợp nhiều dòng BLT từ 8–60 kW.",
     sizes: [
@@ -387,7 +387,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "D25.4T4-2nd (variants)",
     stock: 438,
-    collectionId: "bochu-boci-2nd-upper-protective-lens",
+    collection_id: "bochu-boci-2nd-upper-protective-lens",
     description:
       "Ống kính bảo vệ trên thứ 2 BOCHU (BOCI) D25.4×4, chất lượng quang học cao, tương thích nhiều model BLT từ 8–60 kW.",
     sizes: [
@@ -467,7 +467,7 @@ export const lensProducts: Product[] = [
     badges: ["Bán chạy"],
     sku: "BLT6-Focus-Cartridge (variants)",
     stock: 1974,
-    collectionId: "bochu-boci-focusing-cartridge-unit",
+    collection_id: "bochu-boci-focusing-cartridge-unit",
     description:
       "Hộp mực lấy nét (Focusing Cartridge Unit) cho đầu cắt BOCHU BOCI BLT6, chất lượng quang học cao, tương thích các model từ BLT641-200 đến BLT6102MA-400.",
     sizes: [
@@ -647,7 +647,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "BLT3-4-5-Focus-Cartridge (variants)",
     stock: 2300,
-    collectionId: "bochu-boci-focusing-cartridge-unit",
+    collection_id: "bochu-boci-focusing-cartridge-unit",
     description:
       "Bộ phận hộp mực lấy nét BOCHU BOCI BLT3/4/5 Series, nhiều lựa chọn Part No. tương thích với các model BLT khác nhau.",
     sizes: [
@@ -908,7 +908,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá"],
     sku: "collimating-cartridge-variants",
     stock: 1974,
-    collectionId: "bochu-boci-collimating-cartridge-unit",
+    collection_id: "bochu-boci-collimating-cartridge-unit",
     description:
       "Cartridge chuẩn trực (collimating) cho các dòng máy BOCHU BOCI. Nhiều Part No. tương thích đa dạng model BLT/BLTH/BLTA.",
     sizes: [
@@ -1117,7 +1117,7 @@ export const lensProducts: Product[] = [
     ],
     sku: "bochu-lower-protective-lens",
     stock: 1974,
-    collectionId: "bochu-boci-lower-protective-lens-cartridge",
+    collection_id: "bochu-boci-lower-protective-lens-cartridge",
     description:
       "Ống kính bảo vệ dưới gốc BOCHU (BOCI) có khả năng tương thích cao với đầu cắt Bachu. Thiết kế dạng ngăn kéo cho phép vận hành cắm và chạy, giúp bảo trì và thay thế thuận tiện.",
     sizes: [
@@ -1203,7 +1203,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Bán chạy"],
     sku: "Original-2nd-Lower (variants)",
     stock: 1200,
-    collectionId: "bochu-boci-2nd-lower-protective-lens-cartridge",
+    collection_id: "bochu-boci-2nd-lower-protective-lens-cartridge",
     description:
       "Ống kính bảo vệ BOCHU Original 2nd-Lower chặn các tia bắn nhiệt độ cao phát sinh trong quá trình cắt, ngăn hỏng hóc lõi đầu cắt và giảm chi phí bảo trì. Thiết kế ngăn kéo cho phép thay thế dễ dàng.",
     sizes: [
@@ -1256,7 +1256,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "",
     stock: 1974,
-    collectionId: "bochu-boci-upper-protective-lens-cartridge",
+    collection_id: "bochu-boci-upper-protective-lens-cartridge",
     description: "Ống kính bảo vệ trên của BOCHU (BOCI) BLT Series.",
     specs: [
       {
@@ -1468,7 +1468,7 @@ export const lensProducts: Product[] = [
     badges: ["Giảm giá", "Bán chạy"],
     sku: "bochu-2nd-upper-protective-lens",
     stock: 1974,
-    collectionId: "bochu-boci-2nd-upper-protective-lens-cartridge",
+    collection_id: "bochu-boci-2nd-upper-protective-lens-cartridge",
     description:
       "Ống kính bảo vệ BOCHU 2nd-Upper giúp ngăn chặn tia bắn, bảo vệ lõi đầu cắt, giảm chi phí bảo trì. Tương thích nhiều model BLT/BLTA.",
     sizes: [

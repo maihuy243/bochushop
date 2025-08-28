@@ -62,7 +62,7 @@ export const nozzlesProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "bochu-boci-2d-common-nozzles",
     stock: 713,
-    collectionId: "bochu-boci-2d-common-nozzles",
+    collection_id: "bochu-boci-2d-common-nozzles",
     description:
       "Các đầu phun thông thường một/hai lớp nguyên bản dùng cho đầu cắt laser BOCHU (BOCI) làm từ đồng đỏ chất lượng cao, dẫn điện tốt giúp đầu laser hoạt động ổn định và hiệu quả; xử lý chống oxy hóa nghiêm ngặt để tăng tuổi thọ.",
     sizes: [
@@ -218,7 +218,7 @@ export const nozzlesProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "bochu-boci-2d-bevel-nozzles",
     stock: 999,
-    collectionId: "bochu-boci-2d-bevel-nozzles",
+    collection_id: "bochu-boci-2d-bevel-nozzles",
     description:
       "Các đầu phun vát 2D nguyên bản được sử dụng trong máy cắt laser sợi BOCHU（BOCI） không chỉ có độ cứng và khả năng chịu nhiệt cao mà còn có khả năng chống xỉ tuyệt vời. Ngoài ra, quy trình chống oxy hóa nghiêm ngặt có thể kéo dài tuổi thọ của chúng.",
     sizes: [
@@ -345,7 +345,7 @@ export const nozzlesProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 999,
-    collectionId: "bochu-boci-tube-bevel-nozzles",
+    collection_id: "bochu-boci-tube-bevel-nozzles",
     description:
       "Vòi phun vát ống chất lượng cao BOCHU làm từ đồng đỏ cao cấp, độ dẫn điện tốt, hoạt động ổn định; độ đồng tâm cao nhờ gia công một lần bằng thiết bị cơ khí tự động.",
     sizes: [

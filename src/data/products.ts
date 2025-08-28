@@ -23,7 +23,7 @@ export interface ProductSize {
 }
 
 export interface Product {
-  id: string;
+  product_id: string;
   handle: string;
   title: string;
   price: number;
@@ -33,16 +33,16 @@ export interface Product {
   badges?: string[];
   sku: string;
   stock: number;
-  collectionId: string;
+  collection_id: string;
   description?: string;
-  sizes: ProductSize[];
+  size: ProductSize[];
 }
 
 export interface Collection {
   id: string;
   handle: string;
   title: string;
-  heroImage: string;
+  hero_image: string;
 }
 
 export interface ParentCategory {
@@ -62,18 +62,19 @@ export const parentCategories: ParentCategory[] = [
 
 export const products: Product[] = [...lensProducts, ...nozzlesProducts, ...accessoryProducts];
 
-export const getProductsByCollection = (collectionId: string): Product[] => {
-  return products.filter((product) => product.collectionId === collectionId);
+export const getProductsByCollection = (collection_id: string, products: Product[]): Product[] => {
+  return products.filter((product) => product.collection_id === collection_id);
 };
 
-export const getProductByHandle = (handle: string): Product | undefined => {
-  return products.find((product) => product.handle === handle);
+export const getProductByHandle = (handle: string,  products: Product[]): Product | undefined => {
+  return products.find((product) => product.product_id === handle);
 };
 
 export const getCollectionByHandle = (
-  handle: string
+  handle: string,
+  data: ParentCategory[] = []
 ): Collection | undefined => {
-  return parentCategories
+  return data
     .flatMap((category) => category.collections)
-    .find((collection) => collection.handle === handle);
+    .find((collection) => collection.id === handle);
 };

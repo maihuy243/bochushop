@@ -39,7 +39,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 999,
-    collectionId: "bochu-boci-ceramic-body",
+    collection_id: "bochu-boci-ceramic-body",
     description:
       "Thân gốm BOCHU (BOCI) tín hiệu ổn định, độ nhạy cao; kết hợp gốm nhập khẩu và hợp kim đặc biệt cho khả năng dẫn điện/cách điện vượt trội, chống nổ và ngăn ngừa nổ hiệu quả.",
     sizes: [
@@ -90,7 +90,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 999,
-    collectionId: "bochu-boci-ceramic-locking-ring",
+    collection_id: "bochu-boci-ceramic-locking-ring",
     description:
       "Vòng khóa gốm BOCHU BOCI Original M8*0.75 cho độ bền cao, cách điện tốt, giữ chặt ổn định. Tương thích nhiều dòng đầu cắt BLT (xem chi tiết trong thông số).",
     sizes: [
@@ -129,7 +129,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 999,
-    collectionId: "bochu-boci-ceramic-locking-ring",
+    collection_id: "bochu-boci-ceramic-locking-ring",
     description:
       "Vòng khóa gốm BOCHU BOCI M11*0.75 được chế tạo từ gốm cách điện chất lượng cao, cho độ bền cao, chống nổ và dẫn điện ổn định. Tương thích nhiều dòng đầu cắt BLT (chi tiết trong thông số).",
     sizes: [
@@ -196,7 +196,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "bochu-boci-protective-screws",
     stock: 999,
-    collectionId: "bochu-boci-protective-screws",
+    collection_id: "bochu-boci-protective-screws",
     description:
       "Vít bảo vệ BOCHU BOCI Original cho dòng BLT – thiết kế bền bỉ, ổn định, tương thích nhiều model (xem chi tiết trong thông số).",
     sizes: [
@@ -290,7 +290,7 @@ export const accessoryProducts: Product[] = [
     ],
     sku: "bochu-boci-capacitance-sensor-module",
     stock: 613,
-    collectionId: "bochu-boci-capacitance-sensor-module",
+    collection_id: "bochu-boci-capacitance-sensor-module",
     description:
       "Mô-đun cảm biến điện dung BOCHU BOCI Original – tương thích nhiều model BLT, độ bền cao và ổn định.",
     sizes: [
@@ -463,7 +463,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 999,
-    collectionId: "bochu-boci-rf-cable",
+    collection_id: "bochu-boci-rf-cable",
     description:
       "Cáp đồng trục Bochu RF sử dụng đầu nối bằng đồng thau hai đầu mạ niken, chống oxy hóa, chống ăn mòn và bền bỉ khi cắm rút nhiều lần. Thân cáp bện nylon cứng cáp, tăng độ bền và khả năng chống kéo.",
     sizes: [
@@ -505,7 +505,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "bochu-boci-spring-seal",
     stock: 613,
-    collectionId: "bochu-boci-spring-seal",
+    collection_id: "bochu-boci-spring-seal",
     description:
       "Vòng đệm PTFE V-ring dùng cho đầu cắt BOCHU Black King Kong, chịu nhiệt cao, chống ăn mòn và mài mòn; sản xuất trong xưởng không bụi với kiểm soát chất lượng nghiêm ngặt.",
     sizes: [
@@ -570,7 +570,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Hàng bán chạy"],
     sku: "",
     stock: 613,
-    collectionId: "bochu-boci-amplifier",
+    collection_id: "bochu-boci-amplifier",
     description:
       "Bộ khuếch đại đa năng cho cảm biến điện dung BOCHU (BOCI), tiêu chuẩn IP65, truyền tín hiệu ổn định và chống nhiễu. Hai phiên bản: BCL_AMP (CHA0020) cho BCS100, và BCL_AMP_3D (CHA0070) cho BCS100M.",
     sizes: [
@@ -620,7 +620,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "",
     stock: 613,
-    collectionId: "bochu-boci-wkb-remote-control",
+    collection_id: "bochu-boci-wkb-remote-control",
     description:
       "Điều khiển từ xa BOCHU BOCI WKB – nhiều phiên bản V6/V6H với ngôn ngữ và màu sắc khác nhau, một số model hỗ trợ HypCut.",
     sizes: [
@@ -670,7 +670,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "cypnest-tubest-software",
     stock: 613,
-    collectionId: "cypnest-tubest-software",
+    collection_id: "cypnest-tubest-software",
     description:
       "Phần mềm BOCHU Tubest 3D Tube Cutting Nesting Software Professional Edition – hỗ trợ thiết kế, tối ưu hóa và nesting cho cắt ống 3D bằng laser.",
     sizes: [
@@ -710,7 +710,7 @@ export const accessoryProducts: Product[] = [
     badges: ["Giảm giá", "Hàng bán chạy"],
     sku: "cypnest-tubest-software",
     stock: 613,
-    collectionId: "cypnest-tubest-software",
+    collection_id: "cypnest-tubest-software",
     description:
       "CypNest Professional tối ưu bố trí chi tiết trên tấm phẳng, giảm hao phí vật liệu và tự động sinh đường cắt/tham số, hỗ trợ nhập nhiều định dạng bản vẽ để nâng cao hiệu suất sản xuất.",
     sizes: [

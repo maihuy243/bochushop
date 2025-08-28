@@ -11,7 +11,7 @@ interface CollectionCardProps {
 
 export function CollectionCard({ collection, index }: CollectionCardProps) {
   return (
-    <Link href={`/collections/${collection.handle}`} className="block h-full">
+    <Link href={`/collections/${collection.id}`} className="block h-full">
       <motion.article
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -24,7 +24,7 @@ export function CollectionCard({ collection, index }: CollectionCardProps) {
         <div className="h-full flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 py-2">
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
-              src={collection.heroImage}
+              src={collection.hero_image}
               alt={collection.title}
               fill
               className="object-contain transition-transform duration-300 group-hover:scale-102"

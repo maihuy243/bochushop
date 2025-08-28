@@ -22,7 +22,6 @@ export async function generateMetadata({ params }: CollectionPageProps): Promise
 }
 
 export default async function CollectionPage({ params, searchParams }: CollectionPageProps) {
-  
   const { handle } = await params;
 
   return (

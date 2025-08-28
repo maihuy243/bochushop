@@ -32,7 +32,7 @@ export async function getCollection(
     id: collection.id,
     handle: collection.handle,
     title: collection.title,
-    heroImage: collection.heroImage,
+    hero_image: collection.hero_image,
     description: (collection as any).description ?? "", // Provide a default or map as needed
   };
 }
@@ -43,7 +43,7 @@ export async function getProduct(handle: string): Promise<Product | null> {
 }
 
 export async function getCollectionProducts(
-  collectionId: string,
+  collection_id: string,
   {
     search = "",
     tags = [],
@@ -59,11 +59,11 @@ export async function getCollectionProducts(
 }> {
   await new Promise((resolve) => setTimeout(resolve, SIMULATE_DELAY));
 
-  let filteredProducts = getProductsByCollection(collectionId);
+  let filteredProducts = getProductsByCollection(collection_id);
 
   // Apply search
   if (search) {
-    filteredProducts = searchProducts(search, collectionId);
+    filteredProducts = searchProducts(search, collection_id);
   }
   // Apply sorting
   filteredProducts = sortProducts(filteredProducts, sortBy);
@@ -85,12 +85,12 @@ export async function getCollectionProducts(
 
 export async function getRelatedProducts(
   productId: string,
-  collectionId: string,
+  collection_id: string,
   limit = 4
 ): Promise<Product[]> {
   await new Promise((resolve) => setTimeout(resolve, SIMULATE_DELAY));
 
-  const collectionProducts = getProductsByCollection(collectionId);
+  const collectionProducts = getProductsByCollection(collection_id);
   const filteredProducts = collectionProducts.filter(
     (product) => product.id !== productId
   );
@@ -145,7 +145,7 @@ export function generateCollectionMetadata(collection: Collection) {
     openGraph: {
       title: collection.title,
       description: collection.description,
-      images: [collection.heroImage],
+      images: [collection.hero_image],
       type: "website" as const,
     },
   };

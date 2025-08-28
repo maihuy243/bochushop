@@ -16,10 +16,6 @@ export function CollectionHero({
   productCount,
 }: CollectionHeroProps) {
    const router = useRouter();
-  // Find parent category for breadcrumbs
-  const parentCategory = parentCategories.find((cat) =>
-    cat.collections.some((col) => col.id === collection.id)
-  );
 
   const breadcrumbItems = [
     {
@@ -36,7 +32,7 @@ export function CollectionHero({
     <div className="relative">
       <div className="aspect-[21/9] overflow-hidden max-h-[400px]">
         <Image
-          src={collection.heroImage}
+          src={collection.hero_image}
           alt={collection.title}
           fill
           className="object-contain transition-transform duration-300 group-hover:scale-102"

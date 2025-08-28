@@ -1,7 +1,9 @@
+
 import { Metadata } from "next";
 import { generateProductMetadata } from "@/lib/data";
 import { ProductPageComponent } from "@/components/pages/ProductPage";
 import { getProductByHandle } from "@/data/seed";
+import { useFlatProducts } from "@/hooks/useAllProduct";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
@@ -11,7 +13,7 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { handle } = await params;
-  const foundProduct = getProductByHandle(handle);
+  const foundProduct = getProductByHandle(handle, []);
   
   if (!foundProduct) {
     return {

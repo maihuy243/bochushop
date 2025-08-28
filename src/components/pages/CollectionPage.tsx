@@ -9,6 +9,8 @@ import { CartDrawer } from "../CartDrawer";
 import { getCollectionByHandle, getProductsByCollection, Collection, Product } from "../../data/products";
 import { useCartStore } from "../../lib/cart";
 import { FooterRoot } from "../Footer";
+import { useCategories } from "@/hooks/useCategories";
+import { useFlatProducts } from "@/hooks/useAllProduct";
 
 interface CollectionPageProps {
   handle: string;
@@ -18,17 +20,19 @@ export function CollectionPageComponent({ handle }: CollectionPageProps) {
   const [collection, setCollection] = useState<Collection | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const { items, updateQuantity, removeItem, getTotalItems, toggleCart, isOpen } = useCartStore();
+  const { data: categories = [] } = useCategories()
+  const { data: dataAllProducts } = useFlatProducts()
 
   useEffect(() => {
-    const foundCollection = getCollectionByHandle(handle);
+    const foundCollection = getCollectionByHandle(handle, categories);
     if (foundCollection) {
       setCollection(foundCollection);
-      const collectionProducts = getProductsByCollection(foundCollection.handle);
+      const collectionProducts = getProductsByCollection(foundCollection.id, dataAllProducts || []);
       setProducts(collectionProducts);
     } else {
       // toast.error("Collection not found");
     }
-  }, [handle]);
+  }, [handle, categories.length]);
 
   const handleLoginClick = () => {
     toast.info("Login functionality would be implemented here");

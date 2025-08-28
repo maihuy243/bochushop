@@ -23,7 +23,7 @@ export function SimpleProductCard({ product }: SimpleProductCardProps) {
   };
 
   return (
-    <Link href={`/products/${product.handle}`}>
+    <Link href={`/products/${product.product_id}`}>
       <motion.div
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
