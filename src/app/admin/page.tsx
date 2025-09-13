@@ -397,7 +397,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const expireAt = localStorage.getItem("admin-auth");
-
+    console.log('expireAt ____',expireAt);
     if (!expireAt) {
       router.replace("/auth");
       return;
@@ -406,6 +406,7 @@ export default function AdminPage() {
     const now = Date.now();
     if (now > Number(expireAt)) {
       localStorage.removeItem("admin-auth");
+      console.log('back to auth ____');
       router.replace("/auth");
       return;
     }
