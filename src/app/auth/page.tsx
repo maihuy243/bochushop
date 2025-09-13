@@ -27,6 +27,7 @@ export default function AuthPage() {
     if (data.success) {
       const expireAt = Date.now() + 6 * 60 * 60 * 1000; 
       localStorage.setItem("admin-auth", String(expireAt));
+      console.log('redirect to admin page !');
       router.push("/admin");
     } else {
       setError("Sai mật khẩu");
