@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useProducts } from "@/hooks/useAllProduct";
 import { Product } from "@/data/products";
-import { useRouter } from "next/navigation";
 import { createProduct, deleteProduct, updateProduct } from "@/lib/apis";
 
 // ==================== Product Modal ====================
@@ -392,29 +391,6 @@ export default function AdminPage() {
   const [form, setForm] = useState<Partial<Product>>({});
   const [editing, setEditing] = useState<Product | null>(null);
 
-  const router = useRouter();
-  const [checked, setChecked] = useState(false);
-
-  useEffect(() => {
-    const expireAt = localStorage.getItem("admin-auth");
-    console.log('expireAt ____',expireAt);
-    if (!expireAt) {
-      router.replace("/auth");
-      return;
-    }
-
-    const now = Date.now();
-    if (now > Number(expireAt)) {
-      localStorage.removeItem("admin-auth");
-      console.log('back to auth ____');
-      router.replace("/auth");
-      return;
-    }
-
-    // xong hết thì cho render children
-    setChecked(true);
-  }, [router]);
-
   const createMutation = useMutation({
     mutationFn: (newProd: Partial<Product>) => createProduct(newProd),
     onSuccess: () => {
@@ -437,10 +413,6 @@ export default function AdminPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["products"] }),
   });
 
-
-  if (!checked) {
-    return null; // chờ check xong rồi mới render
-  }
   if (isLoading) return <p className="p-6">Đang tải sản phẩm...</p>;
 
   return (
