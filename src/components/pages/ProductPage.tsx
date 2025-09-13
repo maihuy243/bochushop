@@ -9,7 +9,8 @@ import { CartDrawer } from "../CartDrawer";
 import { getProductByHandle, Product } from "../../data/products";
 import { useCartStore } from "../../lib/cart";
 import { CollectionProducts } from "../collection/CollectionProducts";
-import { useFlatProducts } from "@/hooks/useAllProduct";
+import { useProducts } from "@/hooks/useAllProduct";
+import ActionButtons from "../ActionButton";
 
 interface ProductPageProps {
   handle: string;
@@ -26,7 +27,8 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
     toggleCart,
     isOpen,
   } = useCartStore();
-  const { data: products } = useFlatProducts()
+  const { data: products } = useProducts()
+
 
   useEffect(() => {
     const foundProduct = getProductByHandle(handle, products || []);
@@ -49,8 +51,8 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
 
   const productSuggest = useMemo<Product[]>(() => {
     if (!products?.length) return [];
-    const pool = product?.product_id
-      ? products.filter((p) => p?.product_id !== product?.product_id) // bỏ sản phẩm đang xem (nếu có)
+    const pool = product?.id
+      ? products.filter((p) => p?.id !== product?.id) // bỏ sản phẩm đang xem (nếu có)
       : products;
 
     const take = Math.min(4, pool.length);
@@ -97,6 +99,8 @@ export function ProductPageComponent({ handle }: ProductPageProps) {
           removeItem(productId, sizeLabel)
         }
       />
+      <ActionButtons />
+
     </div>
   );
 }

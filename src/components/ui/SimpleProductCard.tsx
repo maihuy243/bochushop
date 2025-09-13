@@ -21,9 +21,9 @@ export function SimpleProductCard({ product }: SimpleProductCardProps) {
     image: product.images[0], // Hình ảnh (Image)
     expect_price: formatPrice(product.price, product.currency), // Giá dự kiến (Expected Price)
   };
-
+  
   return (
-    <Link href={`/products/${product.product_id}`}>
+    <Link href={`/products/${product.id}`}>
       <motion.div
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}

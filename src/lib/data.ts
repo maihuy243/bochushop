@@ -85,7 +85,7 @@ export async function getRelatedProducts(
 
   const collectionProducts = getProductsByCollection(collection_id);
   const filteredProducts = collectionProducts.filter(
-    (product) => product.product_id !== productId
+    (product) => product.id !== productId
   );
 
   // Shuffle and return limited results

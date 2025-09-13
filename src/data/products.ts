@@ -16,7 +16,7 @@ export interface ProductSize {
 }
 
 export interface Product {
-  product_id: string;
+  id: string;
   handle: string;
   title: string;
   price: number;
@@ -26,9 +26,9 @@ export interface Product {
   badges?: string[];
   sku: string;
   stock: number;
-  collection_id: string;
   description?: string;
   size: ProductSize[];
+  order: null | number
 }
 
 export interface Collection {
@@ -47,12 +47,10 @@ export interface ParentCategory {
 
 export const products: Product[] = [];
 
-export const getProductsByCollection = (collection_id: string, products: Product[]): Product[] => {
-  return products.filter((product) => product.collection_id === collection_id);
-};
+
 
 export const getProductByHandle = (handle: string,  products: Product[]): Product | undefined => {
-  return products.find((product) => product.product_id === handle);
+  return products.find((product) => product.id === handle);
 };
 
 export const getCollectionByHandle = (

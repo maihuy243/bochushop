@@ -1,10 +1,10 @@
-import { getFlatProducts } from "@/lib/apis"
+import { getAllProducts } from "@/lib/apis"
 import { useQuery } from "@tanstack/react-query"
 
-export function useFlatProducts() {
+export function useProducts() {
   return useQuery({
     queryKey: ["products"],
-    queryFn: getFlatProducts,
+    queryFn: getAllProducts,
     staleTime: 1000 * 60 * 5, // cache 5 phút
   })
 }

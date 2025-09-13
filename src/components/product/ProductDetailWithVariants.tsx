@@ -15,7 +15,6 @@ import {
   ProductSize,
 } from "../../data/products";
 import { useRouter } from "next/navigation";
-import { useCategories } from "@/hooks/useCategories";
 
 // cấu hình link tài khoản của bạn
 export const ZALO_LINK = "https://zalo.me/0929687997"; // số VN ở dạng +84 / 84
@@ -34,7 +33,6 @@ export function ProductDetailWithVariants({
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const router = useRouter();
-  const { data = [] } = useCategories()
 
   const formatPrice = (price: number, currency: string) => {
     return new Intl.NumberFormat("vi-VN", {
@@ -55,22 +53,10 @@ export function ProductDetailWithVariants({
     router.back();
   };
 
-  // Find collection and parent category for breadcrumbs
-  const collection = useMemo(() => {
-    const foundCollection = data
-      .flatMap((cat) => cat.collections)
-      .find((col) => col.handle === product.collection_id);
-    return foundCollection;
-  }, [product]);
-
   const breadcrumbItems = [
     {
       label: "Trang chủ",
       onClick: () => router.push("/"),
-    },
-    {
-      label: collection?.title || "Bộ sưu tập",
-      onClick: () => router.push(`/collections/${product.collection_id}`),
     },
     {
       label: product.title,
@@ -91,11 +77,6 @@ export function ProductDetailWithVariants({
       {/* Header with breadcrumbs and back button */}
       <div className="container mx-auto max-w-7xl px-4 py-4">
         <Breadcrumbs items={breadcrumbItems} />
-
-        <Button variant="ghost" onClick={handleBackClick} className="mb-4">
-          <ArrowLeft size={16} className="mr-2" />
-          Quay lại {collection?.title || "Bộ sưu tập"}
-        </Button>
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 py-8">
@@ -122,11 +103,10 @@ export function ProductDetailWithVariants({
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                      index === selectedImageIndex
+                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${index === selectedImageIndex
                         ? "border-blue-500"
                         : "border-gray-200 hover:border-gray-300"
-                    }`}
+                      }`}
                   >
                     <img
                       src={image}
@@ -217,13 +197,12 @@ export function ProductDetailWithVariants({
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setSelectedSize(size)}
                       disabled={size.stock === 0}
-                      className={`p-3 border rounded-lg text-sm font-medium transition-colors ${
-                        selectedSize?.label === size.label
+                      className={`p-3 border rounded-lg text-sm font-medium transition-colors ${selectedSize?.label === size.label
                           ? "border-blue-500 bg-blue-50 text-blue-700"
                           : size.stock === 0
-                          ? "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed"
-                          : "border-gray-300 hover:border-gray-400"
-                      }`}
+                            ? "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
                     >
                       <div>{size.label}</div>
                       <div className="text-xs">
@@ -275,7 +254,7 @@ export function ProductDetailWithVariants({
                   Zalo
                 </a>
               </Button>
-{/* 
+              {/* 
               <Button variant="outline" size="lg" asChild disabled={true}>
                 <a
                   href={WHATSAPP_LINK}

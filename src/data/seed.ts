@@ -14,7 +14,7 @@ export function getProductByHandle(handle: string, products: Product[] = []): Pr
 }
 
 export function getProductsByCollection(collection_id: string): Product[] {
-  return products.filter(product => product.collection_id === collection_id);
+  return products.filter(product => product.id === collection_id);
 }
 
 export function searchProducts(query: string, collection_id?: string): Product[] {

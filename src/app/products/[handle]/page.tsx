@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { generateProductMetadata } from "@/lib/data";
 import { ProductPageComponent } from "@/components/pages/ProductPage";
 import { getProductByHandle } from "@/data/seed";
-import { useFlatProducts } from "@/hooks/useAllProduct";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
